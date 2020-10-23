@@ -20,7 +20,7 @@
     <div class="wrapper">
 
         <?php
-            // Kontrollerar om besökaren är inloggad, skickar till logga in 
+            // Check if logged in, if not it sends to log in page
             if (!isset($_SESSION['username'])) {
                 header("Location: login.php"); 
             }
@@ -43,11 +43,11 @@
                     <br>
                     <input type="text" name="title" id="title">
                     <br>
-                    <label for="workstart">Start:</label>
+                    <label for="workstart">Start: (yyyy-mm-dd)</label>
                     <br>
                     <input type="text" name="workstart" id="workstart">
                     <br>
-                    <label for="workend">End:</label>
+                    <label for="workend">End: (yyyy-mm-dd)</label>
                     <br>
                     <input type="text" name="workend" id="workend">
                     <br>
@@ -70,11 +70,11 @@
                     <br>
                     <input type="text" name="program" id="program">
                     <br>
-                    <label for="edustart">Start:</label>
+                    <label for="edustart">Start: (yyyy-mm-dd)</label>
                     <br>
                     <input type="text" name="edustart" id="edustart">
                     <br>
-                    <label for="eduend">End:</label>
+                    <label for="eduend">End: (yyyy-mm-dd)</label>
                     <br>
                     <input type="text" name="eduend" id="eduend">
                     <br>

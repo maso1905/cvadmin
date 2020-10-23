@@ -1,11 +1,11 @@
 <?php
-session_start(); // För att starta sessionen
+session_start(); // Start sessionen
 
-// För att få felmeddelanden
+// Reports errors
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
-// Automatisk laddning av klasser
+// Auto load of classes
 function __autoload($class_name)
 {
  include "classes/" . $class_name . ".class.php";
