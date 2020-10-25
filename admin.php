@@ -1,7 +1,7 @@
   
 <?php    
-    require 'errors.php';
-    include("includes/config.php")   
+    include("includes/config.php");
+    require 'errors.php';  
 ?>
 <!DOCTYPE html>
 <html lang="en">

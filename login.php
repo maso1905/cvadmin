@@ -1,6 +1,6 @@
 <?php    
-    require 'errors.php';
-    include("includes/config.php")   
+    include("includes/config.php");
+    require 'errors.php'; 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +32,7 @@
                 </div>
             </div>
             <span class="menuicon" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-            <span class="logoicon" href="#" style="font-size:30px;cursor:pointer">CV</span>
+            <span class="logoicon" style="font-size:30px;cursor:pointer">CV</span>
         </nav>
         <!--/nav-->
     </header>
@@ -73,14 +73,14 @@
                 
                 <div class="login-container">
                     <label for="username"><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="username" required>
+                    <input type="text" placeholder="Enter Username" name="username" required id="username">
                     
                     <label for="password"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="password" required>
+                    <input type="password" placeholder="Enter Password" name="password" required  id="password" >
                         
                     <input type="submit" name="loggIn" value="Log in">
 
-                    <?php if (isset($message)) {?><b style="color: red;"><?php echo $message;}?></b>
+                    <?php if (isset($message)) {?> <b style="color: red;"><?php echo $message; ?></b><?php } ?>
                 </div>
                     
                 <div class="login-container" style="background-color:#f1f1f1">
@@ -99,7 +99,7 @@
     
             <div class="circle-section">
                 <ul>
-                    <li><img src="css/images/portrait1.jpg" /></li>
+                    <li><img src="css/images/portrait1.jpg" alt="Portrait of job applicant"/></li>
                 </ul>
             </div>
             <!--/circle-section-->
@@ -116,7 +116,7 @@
         <div class="about-container-small">
             <div class="circle-section">
                 <ul>
-                    <li><img src="css/images/portrait1.jpg" /></li>
+                    <li><img src="css/images/portrait1.jpg" alt="Portrait of job applicant"/></li>
                 </ul>
             </div>
             <!--/circle-section-->
@@ -141,7 +141,7 @@
             <h2>Projects</h2>
             <ul>
                 <li>
-                    <img src="css/images/website1.jpg" class="image"/>
+                    <img src="css/images/website1.jpg" class="image" alt="Thumbnail of website one"/>
                     <div class="info-overlay">
                         <div class="text-overlay">
                             <h4><a href="#">Titel</a></h4>
@@ -150,31 +150,31 @@
                     </div>
                 </li>
                 <li>
-                    <img src="css/images/website2.jpg" class="image"/>
+                    <img src="css/images/website2.jpg" class="image" alt="Thumbnail of website two"/>
                     <div class="info-overlay">
                         <div class="text-overlay"></div>
                     </div>
                 </li>
                 <li>
-                    <img src="css/images/website3.jpg" class="image"/>
+                    <img src="css/images/website3.jpg" class="image" alt="Thumbnail of website three"/>
                     <div class="info-overlay">
                         <div class="text-overlay"></div>
                     </div>
                 </li>
                 <li>
-                    <img src="css/images/website4.jpg" class="image"/>
+                    <img src="css/images/website4.jpg" class="image" alt="Thumbnail of website four"/>
                     <div class="info-overlay">
                         <div class="text-overlay"></div>
                     </div>
                 </li>
                 <li>
-                    <img src="css/images/website5.jpg" class="image"/>
+                    <img src="css/images/website5.jpg" class="image" alt="Thumbnail of website five"/>
                     <div class="info-overlay">
                         <div class="text-overlay"></div>
                     </div>
                 </li>
                 <li>
-                    <img src="css/images/website5.jpg" class="image"/>
+                    <img src="css/images/website5.jpg" class="image" alt="Thumbnail of website six"/>
                     <div class="info-overlay">
                         <div class="text-overlay"></div>
                     </div>
@@ -183,6 +183,23 @@
             </ul>
         </div>
         <!--/container-->
+        
+        <div class="tables">
+            <div id="works">
+                <h2>Work</h2> 
+                <div id="work-table">
+                    <!--Work from database--> 
+                </div>
+            </div>
+
+            <div id="education">
+                <h2>Education</h2>
+                <div id="edu-table">
+                    <!--Education from database--> 
+                </div>
+            </div>
+        </div>
+        <!--/tables-->
 
         <footer id="foo">
             <p>
@@ -194,8 +211,8 @@
         </footer>
     </div>
     <!--/wrapper-->
+    <script src="js/main.js"></script>
 </body>
-<script src="js/main.js"></script>
 </html>
 
 
