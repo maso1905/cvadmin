@@ -1,5 +1,9 @@
-  <?php include("includes/config.php")?>
-  <!DOCTYPE html>
+  
+<?php    
+    require 'errors.php';
+    include("includes/config.php")   
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

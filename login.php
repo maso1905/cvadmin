@@ -1,5 +1,7 @@
-<?php include "includes/config.php"?>
-
+<?php    
+    require 'errors.php';
+    include("includes/config.php")   
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,4 +1,5 @@
 <?php
+require 'errors.php';
 session_start(); // Start sessionen
 
 // Reports errors
