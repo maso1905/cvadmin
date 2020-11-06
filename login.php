@@ -139,47 +139,8 @@
 
         <div class="container">
             <h2>Projects</h2>
-            <ul>
-                <li>
-                    <img src="css/images/website1.jpg" class="image" alt="Thumbnail of website one"/>
-                    <div class="info-overlay">
-                        <div class="text-overlay">
-                            <h4><a href="#">Titel</a></h4>
-                            <h5>Beskrivning</h5>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <img src="css/images/website2.jpg" class="image" alt="Thumbnail of website two"/>
-                    <div class="info-overlay">
-                        <div class="text-overlay"></div>
-                    </div>
-                </li>
-                <li>
-                    <img src="css/images/website3.jpg" class="image" alt="Thumbnail of website three"/>
-                    <div class="info-overlay">
-                        <div class="text-overlay"></div>
-                    </div>
-                </li>
-                <li>
-                    <img src="css/images/website4.jpg" class="image" alt="Thumbnail of website four"/>
-                    <div class="info-overlay">
-                        <div class="text-overlay"></div>
-                    </div>
-                </li>
-                <li>
-                    <img src="css/images/website5.jpg" class="image" alt="Thumbnail of website five"/>
-                    <div class="info-overlay">
-                        <div class="text-overlay"></div>
-                    </div>
-                </li>
-                <li>
-                    <img src="css/images/website5.jpg" class="image" alt="Thumbnail of website six"/>
-                    <div class="info-overlay">
-                        <div class="text-overlay"></div>
-                    </div>
-                </li>
-    
+            <ul id="websiteList">
+                <!--Websites from database--> 
             </ul>
         </div>
         <!--/container-->

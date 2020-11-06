@@ -30,6 +30,12 @@
             }
         ?>
         
+        <div id="websites">
+            <h2>Website Info</h2>
+            <div id="websiteList">
+                <!--Websites from database--> 
+            </div>
+        </div>
         
         <div class="tables">
             <div id="works">

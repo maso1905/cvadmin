@@ -1,6 +1,9 @@
 "use strict"
 
 // Variables
+let websiteEl = document.getElementById("websiteList");
+
+
 let workEl = document.getElementById("work-table");
 let eduEl = document.getElementById("edu-table");
 let addWorkbtn = document.getElementById("addWork");
@@ -19,12 +22,43 @@ let workEndInput = document.getElementById("workend");
 // Event listener
 window.addEventListener('load', getWork());
 window.addEventListener('load', getEducation());
+window.addEventListener('load', getWebsite());
 if(addWorkbtn && addEdubtn){
     addWorkbtn.addEventListener('click', addWork, false);
     addEdubtn.addEventListener('click', addEducation, false);
 }
 
 // Functions
+// GETs all website info
+function getWebsite() {
+    websiteEl.innerHTML = '';
+    fetch('http://studenter.miun.se/~maso1905/dt173g/rest/miun_courses/website.php')
+    .then(response => response.json())
+    .then(data => {
+        data.forEach(web => {
+          websiteEl.innerHTML +=
+            `     
+            <h3 style="float: left;">ID: ${web.id}</h3>
+            <table>
+            <thead>
+            <tr>
+                <td>Title</td>
+                <td>URL</td>
+                <td>Description</td>
+            </tr>
+            </thead>
+            <tr>
+            <td><input type="text" value="${web.title}" name="title" id="title${web.id}"></td>
+            <td><input type="text" value="${web.url}" name="url" id="url${web.id}"></td>
+            <td><input type="text" value="${web.description}" name="description" id="description${web.id}"></td>
+            <td><input type="button" value="Update" class="submit" onClick="updateWebsite(${web.id})"></td>
+            </tr>
+            </table><br><br>
+            `
+        })
+    })
+  }
+
 
 // GETs work all tables
 function getWork() {
@@ -92,6 +126,33 @@ function getEducation() {
       })
   })
 }
+
+// Update Website info
+function updateWebsite(id) {
+
+    let newtitle = document.getElementById('title' + id);
+    let newurl = document.getElementById('url' + id);
+    let newdesc = document.getElementById('description' + id);
+
+    newtitle = newtitle.value;
+    newurl = newurl.value;
+    newdesc = newdesc.value;
+
+    let website = {'id': id, 'title': newtitle, 'url': newurl, 'description': newdesc};
+
+  fetch('http://studenter.miun.se/~maso1905/dt173g/rest/miun_courses/website.php?id=' + id, {
+          method: 'PUT',
+          body: JSON.stringify(website)
+      })
+      .then(response => response.json())
+      .then(data => {
+        getWebsite();
+      })
+      .catch(error => {
+          console.log('Error: ', error);
+      })
+}
+
 // Update Work
 function updateWork(id) {
 
