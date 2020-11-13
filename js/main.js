@@ -2,22 +2,24 @@
 
 // Variables
 let websiteEl = document.getElementById("websiteList");
+let webTitleInput = document.getElementById("webtitle");
+let urlInput = document.getElementById("url");
+let descInput = document.getElementById("desc");
+let addWebbtn = document.getElementById("addWebsite");
 
-
-let workEl = document.getElementById("work-table");
 let eduEl = document.getElementById("edu-table");
-let addWorkbtn = document.getElementById("addWork");
-let addEdubtn = document.getElementById("addEducation");
-
 let schoolInput = document.getElementById("school");
 let programInput = document.getElementById("program");
 let eduStartInput = document.getElementById("edustart");
 let eduEndInput = document.getElementById("eduend");
+let addEdubtn = document.getElementById("addEducation");
 
+let workEl = document.getElementById("work-table");
 let companyInput = document.getElementById("company");
 let titleInput = document.getElementById("title");
 let workStartInput = document.getElementById("workstart");
 let workEndInput = document.getElementById("workend");
+let addWorkbtn = document.getElementById("addWork");
 
 // Event listener
 window.addEventListener('load', getWork());
@@ -26,6 +28,7 @@ window.addEventListener('load', getWebsite());
 if(addWorkbtn && addEdubtn){
     addWorkbtn.addEventListener('click', addWork, false);
     addEdubtn.addEventListener('click', addEducation, false);
+    addWebbtn.addEventListener('click', addWebsite, false);
 }
 
 // Functions
@@ -52,6 +55,7 @@ function getWebsite() {
             <td><input type="text" value="${web.url}" name="url" id="url${web.id}"></td>
             <td><input type="text" value="${web.description}" name="description" id="description${web.id}"></td>
             <td><input type="button" value="Update" class="submit" onClick="updateWebsite(${web.id})"></td>
+            <td><input type="button" value="Delete" class="submit" onClick="deleteWebsite(${web.id})"></td>
             </tr>
             </table><br><br>
             `
@@ -151,6 +155,44 @@ function updateWebsite(id) {
       .catch(error => {
           console.log('Error: ', error);
       })
+}
+
+// Delete Website
+function deleteWebsite(id){
+    fetch('http://studenter.miun.se/~maso1905/dt173g/rest/miun_courses/website.php?id=' + id, {
+        method: 'DELETE',
+    })
+    .then(response => response.json())
+    .then(data => {
+      getWebsite();
+    })
+    .catch(error => {
+        console.log('Error: ', error);
+    })
+}
+
+// Add Website
+function addWebsite() {
+    let webtitle = webTitleInput.value;
+    let url = urlInput.value;
+    let desc = descInput.value;
+
+    let web = {'title': webtitle, 'url': url, 'desc': desc};
+
+    fetch('http://studenter.miun.se/~maso1905/dt173g/rest/miun_courses/website.php', {
+        method: 'POST',
+        body: JSON.stringify(web),
+    })
+    .then(response => response.json())
+    .then(data => {
+        getWebsite();
+        webTitleInput.value = '';
+        urlInput.value = '';
+        descInput.value = '';
+    })
+    .catch(error => {
+        console.log('Error: ', error);
+    })
 }
 
 // Update Work

@@ -35,6 +35,22 @@
             <div id="websiteList">
                 <!--Websites from database--> 
             </div>
+            <form>
+                <h2>Add Website:</h2>
+                <label for="webtitle">Title:</label>
+                <br>
+                <input type="text" name="webtitle" id="webtitle">
+                <br>
+                <label for="url">Url:</label>
+                <br>
+                <input type="text" name="url" id="url">
+                <br>
+                <label for="desc">Describtion</label>
+                <br>
+                <input type="text" name="desc" id="desc">
+                <br>
+                <input type="button" value="Add Website" id="addWebsite">
+            </form>
         </div>
         
         <div class="tables">
